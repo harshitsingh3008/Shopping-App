@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: DodgerBlue;
+  margin: 10px;
+  padding: 80px 60px;
+  font-size: 15px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+    <div class="container">
+        <strong>{{user}}'s Dashboard</strong>
+        <strong><a href="/summary">Summary</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    {% if data | length ==0 %}
+    <strong>No categories found . Add the categories now !</strong>
+    {% else%}
+    <div class="flex-container">
+        {% for d in data %}
+        <div>
+            <h1>{{d['name']}}</h1><br/>
+            {% if d['id'] in l %}
+            <a href="/edit_products/{{d['id']}}"><button style="padding: 8px 20px;">Edit Products</button></a>
+            
+            {% else %}
+            No products added. add now..
+            
+            {% endif %}
+           
+            <br/><br/><br>
+            <a href="/create_product/{{d['id']}}"><button style="padding: 8px 6px;">&nbsp; &nbsp;Add Products &nbsp; &nbsp;</button></a>
+            <br/><br/>
+            <a href="/edit_category/{{d['id']}}"><button style="padding: 6px 12px;">Edit</button></a>
+            <a href="/delete_category/{{d['id']}}"><button style="padding: 6px 12px;">Delete</button></a> 
+        </div>
+       
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div>
+        <br/>
+        <br/>
+       <a href="/create_category" class="button">+</a>
+    </div> 
+    
+
+
+</body>
+</html>

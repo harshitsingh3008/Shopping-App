@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name.username}}'s Dashboard</h3>
+        <strong><a href="/manager_dashboard">Home</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <br> <br>
+    <div>
+        <strong>Category :</strong> {{cate.name}}
+        <br> <br>
+        <strong>Product :</strong>  {{prod.name}}
+    </div>
+    <br> <br>
+    <div style="text-align: center;" >
+        <strong>Availabilty : </strong> In Stock <br>
+        <form action="/pre_buy/{{name.id}}/{{cate.id}}/{{prod.id}}" method="POST" id="buy-id" >
+            <br>
+            <div>
+                <label>Quantity: </label>
+                <input type="text" name="quan" value="1" min="1" max="{{prod.quantity}}" required />
+                
+            </div> <br>
+            <div>
+                <label>Price :</label>
+                <input type="number" name="price" value="{{prod.rate}}" disabled />
+                &nbsp; {{prod.unit}}
+            </div> <br>
+            <div>
+                <input type="submit" style="padding: 8px 15px;" value="Check total price" />
+            </div>
+        </form>
+        <br> <br>
+        {% if z==0 %}
+            <strong>The quantity entered exceeds the available limit.Please choose a value below..{{prod.quantity+1}}</strong>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

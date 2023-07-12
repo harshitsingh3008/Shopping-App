@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .flex-container {
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: DodgerBlue;
+        }
+          
+        .flex-container > div {
+          background-color: #f1f1f1;
+          width: 200px;
+          margin: 10px;
+          text-align: center;
+          line-height: 70px;
+          font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name.username}}'s Dashboard</h3>
+        <strong><a href="/cart/{{name.id}}">Cart</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <h1></h1>
+
+    {% for cate in d %}
+    <div class="flex-container">
+        <h2 style="margin: 20px;">{{cate.name}}:</h2>
+        
+        
+        {% if d[cate] %}
+            {% for prod in d[cate] %}
+                <div>
+                    <strong>Product: </strong>{{prod.name}} 
+                    <br>
+                        <strong>Rate: </strong>{{prod.rate}}
+                        {{prod.unit}}
+                        <br>
+                        {% if prod.quantity>0 %}
+                            <a href="/pre_buy/{{name.id}}/{{cate.id}}/{{prod.id}}"><button>&nbsp; &nbsp; Buy &nbsp; &nbsp;</button></a>
+                            <a href="/add_to_cart/{{name.id}}/{{cate.id}}/{{prod.id}}"><button> Add To Cart </button></a>
+                        {% else %}
+                            <button>Out Of Stock</button>
+                        {% endif %}
+                   
+                </div>
+            {% endfor %}
+        {% else %}
+        <strong style="margin: 20px;">This category has no products. Please shop from other items...</strong>
+        {% endif %}
+    </div>
+    <br>
+    {% endfor %}
+
+</body>
+</html>

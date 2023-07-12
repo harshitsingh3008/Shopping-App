@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name}}'s Dashboard</h3>
+        <strong><a href="/summary">Summary</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <div>
+        <strong> Creating a new category:</strong>
+    </div>
+    <br>
+    <form action="/create_category" method="POST" id="create_category-id">
+        <div>
+            <label>Category Name:</label>
+            <input type="text" name="cate" required/>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+
+    </form>
+    {% if a==0 %}
+    <strong>Category already exits...</strong>
+    {% endif %}
+
+</body>
+</html>

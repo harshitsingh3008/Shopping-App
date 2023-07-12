@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Manager Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        h3{align-items: center;}
+    </style>
+</head>
+<body>
+    <h3 style="align-items: center;">Manager Login</h3>
+    <form action="/manager" method="POST" id="manager-login-id" style="align-items: center;">
+        <div>
+            <label>Username <a style="color: crimson;">*</a></label>
+            <input type="text" name="usernamee" required />
+        </div>
+
+        <div>
+            <label>Password <a style="color: crimson;">*</a></label>
+            <input type="text" name="passwordd" required/>
+        </div>
+        <div>
+            <input type="submit" value=" Login"/>
+        </div>
+    </form>
+    <div>
+        {% if u==0 %}
+        <h3>Enter valid username</h3>
+        {% elif p==0 %}
+        <h3>Enter valid password</h3>
+        {% endif %}
+    </div>
+</body>
+</html>

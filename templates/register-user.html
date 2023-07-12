@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register User</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h2>Register User</h2>
+    <form action="/register-user" method="POST" id="register-user-id">
+        <div>
+            <label>Username <a style="color: crimson;">*</a></label>
+            <input type="text" name="usernamee" required/>
+        </div>
+        
+        <div>
+            <label>Password <a style="color: crimson;">*</a></label>
+            <input type="text" name="passwordd" required/>
+        </div>     
+        
+        <div>
+            <h2><input type="submit" value="Register"/></h2>
+        </div>
+    </form>
+    {% if a==0 %}
+    <strong>Username already exits please try again with a different username.</strong>
+    {% endif %}
+
+    <a href="/user_login"><button><strong>Login User</strong></button></a>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src='main.js'></script>
+    <style>form{align-items: center;}   </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "jumbotron">
+            <h1 class ="display-4">  </h1> 
+        </div>
+
+        <div class ="row">
+            <div class = "col-md-10">
+                <strong>{{name}}'s Dashboard</strong>
+                <hr>
+                <form action="/create_product/{{cate['id']}}" method="POST" id="create_category-id">
+                    <div>
+                        <label> Product Name:<a style="color: crimson;">*</a></label>
+                        <input type="text" name="namee" required/>
+                    </div>
+                    <div>
+                        <label>Unit</label>
+                        <select name="unit" id="unit">
+                            {% for a in unit %}
+                            <option value="{{a}}">{{a}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+            
+                    <div>
+                        <label>Rate/Unit:<a style="color: crimson;">*</a></label>
+                        <input type="text" name="rate" required/>
+                    </div>
+                    
+                    <div>
+                        <label>Quantity<a style="color: crimson;">*</a></label>
+                        <input type="Integer" name="quan" required/>
+                    </div>  
+                    <div>
+                        <strong><input type="submit" value="Save"/></strong>
+                    </div>
+                </form>
+                <div>
+                    {% if x==0 %}
+                    <strong>Product already exists. Create different one...</strong>
+                    {% endif %}
+                </div>
+                
+                
+            </div>
+            <div class = "col-md-2">
+                <strong style="text-align: center;"><a href="/summary">Summary</a>&nbsp;|&nbsp;<a href="/logout" >Logout</a></strong>
+                <hr>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <br/><br/>
+                <div>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<button><a href="create_category">&nbsp; &nbsp; &nbsp;+ &nbsp; &nbsp; &nbsp;</a></button>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

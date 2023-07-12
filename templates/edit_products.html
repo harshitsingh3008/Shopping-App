@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Products</title>
+    <style>
+        table{border-collapse: collapse; width: 100%;}
+        td,th{ padding: 8px ; text-align: left; border-bottom: 1px solid #ddd;}
+        tr:hover{background-color: bisque;}
+        th{ color: darkgreen;}
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name}}'s Dashboard</h3>
+        <strong><a href="#">Summary</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <table id="all-products">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Unit</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        {% for p in products %}
+        <tr>
+            <th>{{p['id']}}</th>
+            <th>{{p['name']}}</th>
+            <th>{{p['unit']}} </th>
+            <th>{{p['quantity']}} </th>
+            <th>{{p['rate']}} </th>
+            <th><a href="/update_product/{{p['id']}}">Update</a> | <a href="/delete_product/{{p['id']}}">Delete</a></th>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <br> <br>
+    <a href="/manager_dashboard"><button  style="text-align: center;">Return to Dashboard</button></a>
+</body>
+</html>

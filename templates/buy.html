@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name.username}}'s Dashboard</h3>
+        <strong><a href="/manager_dashboard">Home</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <br> <br>
+    <div>
+        <strong>Category :</strong> {{cate.name}}
+        <br> <br>
+        <strong>Product :</strong>  {{prod.name}}
+    </div>
+    <div style="text-align: center;" >
+        <strong>Availabilty : </strong> In Stock <br>
+        <form action="/buy/{{name.id}}/{{cate.id}}/{{prod.id}}/{{total}}" method="POST" id="buy-id" >
+            <br>
+            <div>
+                <label>Quantity: </label>
+                <input type="text" name="quan" value="{{total/prod.rate}}" disabled required />
+            </div> <br>
+            <div>
+                <label>Price :</label>
+                <input type="text" name="price" value="{{prod.rate}}" disabled />
+                &nbsp; {{prod.unit}}
+            </div> <br>
+            <div>
+                <label>Total :</label>
+                <input type="text" name="total"  value="{{total}}" disabled />
+            </div> <br>
+        </form>
+        <div>
+            <a href="/post_buying/{{name.id}}/{{cate.id}}/{{prod.id}}/{{total}}"><button>Buy</button></a>
+            <a href="/pre_buy/{{name.id}}/{{cate.id}}/{{prod.id}}"><button>Change Quantity</button></a>
+        </div> 
+    </div>
+    
+</body>
+</html>

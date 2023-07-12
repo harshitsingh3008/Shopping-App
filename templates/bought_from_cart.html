@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        table{border-collapse: collapse; width: 100%;}
+        td,th{ padding: 8px ; text-align: left; border-bottom: 1px solid #ddd;}
+        tr:hover{background-color: bisque;}
+        th{ color: darkgreen;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Purchase Details .</h3>
+        <strong><a href="/manager_dashboard">Home</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <br>
+    <div style="text-align: center;">
+        <h2 style="color: forestgreen;">Purchase successful.</h2>
+    </div>
+    <table id="all-products">
+        <tr>
+            <th>S.No</th>
+            <th>Product</th>
+            <th>Rate</th>
+            <th>Price</th>
+        </tr>
+        {% for p in d %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{p}}</td>
+            <td>{{d[p][1]}} {{d[p][2]}} </td>
+            <td>Rs .{{grand_total}}</td>
+        </tr>
+        {% endfor %}
+        <tr style="font-size: large; color:rgb(85, 26, 103)">
+            <td><strong>Grand Total :</strong></td>
+            <td><strong>Rs .{{grand_total}}</strong></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br> <br>
+    <br> <br>
+    <div style="text-align: center;">
+        <a href="/user_dashboard/{{name.id}}"><button><strong>Return to Dashboard</strong></button></a>
+    </div>
+    
+</body>
+</html>

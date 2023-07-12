@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Products</title>
+    <style>
+        table{border-collapse: collapse; width: 100%;}
+        td,th{ padding: 8px ; text-align: left; border-bottom: 1px solid #ddd;}
+        tr:hover{background-color: bisque;}
+        th{ color: darkgreen;}
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name.username}}'s Cart</h3>
+        <strong><a href="/user_dashboard/{{name.id}}">Home</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <table id="all-products">
+        <tr>
+            <th>S.No</th>
+            <th>Category</th>
+            <th>Product</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        {% for p in products %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{p['cate_name']}}</td>
+            <td>{{p['prod_name']}} </td>
+            <td>{{p['rate']}} {{p['unit']}}</td>
+            <td>{{p['quantity']}}</td>
+            <td>Rs. {{p['rate']*p['quantity']}}</td>
+            <td><a href="/edit_cart_item/{{name.id}}/{{p.prod_id}}">Edit</a> | <a href="/delete_cart_item/{{name.id}}/{{p['prod_id']}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        <tr style="font-size: large; color:rgb(85, 26, 103)">
+            <td><strong>Grand Total :</strong></td>
+            <td><strong>Rs .{{grand_total}}</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br> <br>
+    <div style="text-align: center;">
+        <a href="/bought_from_cart/{{name.id}}"><button><h3>&nbsp; &nbsp; Buy All &nbsp; &nbsp;</h3></button></a>
+    </div>
+    <br> <br>
+    <br> <br>
+    <div style="text-align: center;">
+        <a href="/user_dashboard/{{name.id}}"><button><strong>Return to Dashboard</strong></button></a>
+    </div>
+    
+</body>
+</html>

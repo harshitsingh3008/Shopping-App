@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>User Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        h2{align-items: center;}
+    </style>
+</head>
+<body>
+    <h2>User Login</h2>
+    <form action="/user_login" method="POST" id="user-login-id">
+
+        <div>
+            <label>Username <a style="color: crimson;">*</a></label>
+            <input type="text" name="usernamee" required/>
+        </div>
+
+        <div>
+            <label>Password <a style="color: crimson;">*</a></label>
+            <input type="text" name="passwordd" required/>
+        </div>
+
+        <div>
+            <input type="submit" value="Login" />
+        </div>
+    </form>
+    <br/> <br/>
+    <a href="/register-user"><button>Register</button></a>
+    <div>
+        {% if u==0 %}
+        <h3>Enter valid username</h3>
+        {% elif p==0 %}
+        <h3>Enter valid password</h3>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

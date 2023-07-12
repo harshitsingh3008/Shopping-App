@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>{{name.username}}'s Dashboard</h3>
+        <strong><a href="/user_dashboard/{{name.id}}">Home</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    <br>
+    <div style="text-align: center;">
+        <h2 style="color: forestgreen;">Product successfully bought .</h2>
+    </div>
+    <div>
+        <h3>Purchase Details .</h3>
+        <strong>Category :</strong> {{cate.name}}
+        <br> <br>
+        <strong>Product :</strong>  {{prod.name}}
+        <form id="buy-id" >
+            <br>
+            <div>
+                <label>Quantity: </label>
+                <input type="text" name="quan" value="{{total/prod.rate}}" disabled required />
+            </div> <br>
+            <div>
+                <label>Price :</label>
+                <input type="text" name="price" value="{{prod.rate}}" disabled />
+                &nbsp; {{prod.unit}}
+            </div> <br>
+            <div>
+                <label>Total :</label>
+                <input type="text" name="total"  value="{{total}}" disabled />
+            </div> <br>
+        </form>
+    </div>
+    <div>
+        <a href="/user_dashboard/{{name.id}}"><button>Buy more items</button></a>
+    </div>
+    
+</body>
+</html>

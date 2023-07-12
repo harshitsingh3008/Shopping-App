@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: DodgerBlue;
+  margin: 20px;
+  padding: 80px 40px;
+  font-size: 20px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    text-decoration: none;
+  }
+form{ width: 100%;}
+div{ padding: 8px ; text-align: left; }
+input{
+    padding: 5px 10px;
+}
+select{
+    padding: 6px 50px;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <strong>{{name}}'s Dashboard</strong>
+        <strong><a href="/summary">Summary</a> | <a href="/logout">Logout</a></strong>
+    </div>
+    <hr>
+    
+    <div style="background-color: lightgrey; width:300px; border: 10px black; padding: 30px; text-align:center">
+        <form action="/update_product/{{data['id']}}" method="POST" id="create_category-id" >
+           
+            <label> Product Name:<a style="color: crimson;">*</a></label>
+            <input type="text" name="namee"  value="{{data.name}}" required/><br><br>
+        
+            <label>Unit:</label>
+            <select name="unit" id="unit">
+                {% for a in unit %}
+                <option value="{{a}}">{{a}}</option>
+                {% endfor %}
+            </select><br><br>
+        
+            <label>Rate:<a style="color: crimson;">*</a></label>
+            <input type="text" name="rate" value="{{data.rate}}" required/><br><br>
+        
+            <label>Quantity<a style="color: crimson;">*</a></label>
+            <input type="Integer" name="quan" value="{{data.quantity}}" required/><br><br>
+        
+            <strong><input type="submit" value="Save"/></strong>
+        
+        </form>
+    </div>
+</body>
+</html>
